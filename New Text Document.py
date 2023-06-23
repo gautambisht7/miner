@@ -1,21 +1,29 @@
 from selenium import webdriver
-from pynput.keyboard import Key, Controller
-keyboard = Controller()
+import time
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
-driver.get('https://miner.eo.finance/')  # Replace with the actual EO Miner website URL
-login_button = driver.find_element("id",'login_button').click()
-login_click = driver.find_element(By.XPATH,"/html/body/div[1]/div[2]/div/div[1]/div/form/div[5]/span").click()
-username_input = driver.find_element(By.XPATH,"/html/body/div[1]/div[2]/div/div[1]/div/form/label[1]/input")
-password_input = driver.find_element(By.XPATH,'//*[@id="page-view"]/div[2]/div/div[1]/div/form/label[2]/div/input')  # Replace with the actual name of the password input field
-
-username_input.send_keys('gautambisht709@gmail.com')  # Replace 'your_username' with your actual username
-password_input.send_keys('e8c2cadf2149')  # Replace 'your_password' with your actual password
-enter = driver.find_element(By.XPATH,"/html/body/div[1]/div[2]/div/div[1]/div/form/button[2]").click()
-
-driver.implicitly_wait(10)
-while 1 == 1:
-    print("hello")
+driver.get('https://www.youlikehits.com') 
+time.sleep(6)
+login_button = driver.find_element(By.XPATH,"/html/body/table[1]/tbody/tr/td/table/tbody/tr/td[2]/a[2]/div").click()
+time.sleep(3)
+username = driver.find_element(By.XPATH,'''//*[@id="username"]''').send_keys('gauambisht709')
+password = driver.find_element(By.XPATH,'''//*[@id="password"]''').send_keys('e8c2cadf2149')
+submit = driver.find_element(By.XPATH,'''/html/body/table[2]/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/center/form/table/tbody/tr[3]/td/span/input''').click()
+print('logged in')
+time.sleep(8)
+earn = driver.find_element(By.XPATH,'''/html/body/div/table[1]/tbody/tr[2]/td/table/tbody/tr/td/nav/ul/li[2]/a''').click()
+time.sleep(2)
+youtube = driver.find_element(By.XPATH,'''/html/body/div/table[2]/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/center/div[7]/div''').click()
+time.sleep(3)
+print('earning')
+while True:
+    click = 1
+    view_button = driver.find_element(By.XPATH,'//*[@id="listall"]/center/a[1]').click()
+    print(click)
+    time.sleep(120)
+    driver.refresh()
+    click+=1
+   
